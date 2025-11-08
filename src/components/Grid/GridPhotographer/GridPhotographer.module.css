@@ -1,0 +1,11 @@
+.gridphotographer__section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 80px;
+    column-gap: 248px;
+    article{
+        width: 20%;
+    }
+
+}

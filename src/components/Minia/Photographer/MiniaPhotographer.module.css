@@ -1,0 +1,41 @@
+.miniaphotographer__article {
+    display: flex;
+    width: 200;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ .miniaphotographer__article_img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.miniaphotographer__article_title {
+    color: var(--primary-font-light);
+    font-family: var(--font-dm-sans);
+    font-size: 36;
+    white-space: nowrap;
+}
+
+.miniaphotographer__article_subtitle {
+    color: var(--secondary-font-3);
+    font-family: var(--font-dm-sans);
+    font-size: 13;
+}
+
+.miniaphotographer__article_p {
+    font-family: var(--font-dm-sans);
+    font-size: 10;
+}
+
+.miniaphotographer__article_span {
+    color: #757575;
+    font-family: var(--font-dm-sans);
+    font-size: 9;
+}
