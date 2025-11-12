@@ -6,23 +6,28 @@ import BtnDropDown from '../Button/BtnDropDown';
 export default function DropDownFilter () {
     const [activeFilter, selectFilter] = useState(0);
     const [isDeploy, setDeploy] = useState(false);
-    const filtercategories = ['Popularité', 'Date', 'Titre'];
-
-    function handleOnClick(){
-
-    }
 
 
     return (
         <section className={styles.dropdownfilter__section}>
-            <button
-                type='button'
-                className={`btn--primary ${styles.dropdownfilter__section_btn}`}
-                onClick={()=>handleOnClick()}
-            >
-                {filtercategories[activeFilter]}
-                <BtnDropDown setDeploy={setDeploy} isDeploy={isDeploy}/>
-            </button>
+            <ul className={styles.dropdownlist}>
+                <li className={styles.dropdownlist__default}>
+                    <button type='button' onClick={()=>selectFilter(0)}>
+                        <span>Popularité</span>
+                    </button>
+                    <BtnDropDown setDeploy={setDeploy} isDeploy={isDeploy}/>
+                </li>
+                <li className={!isDeploy ? styles.dropdownlist__hidden : styles.dropdownlist__displayed}>
+                    <button type='button' onClick={()=>selectFilter(1)}>
+                        <span>Date</span>
+                    </button>
+                </li>
+                 <li className={!isDeploy ? styles.dropdownlist__hidden : styles.dropdownlist__displayed}>
+                    <button type='button' onClick={()=>selectFilter(2)}>
+                        <span>Titre</span>
+                    </button>
+                </li>
+            </ul>
         </section>
     )
 }

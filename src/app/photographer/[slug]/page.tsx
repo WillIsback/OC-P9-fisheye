@@ -1,5 +1,6 @@
 import { fetchPhotographer } from "@/actions/prisma.action"
 import BannerPhotographer from "@/components/Header/BannerPhotographer/BannerPhotographer";
+import DropDownFilter from "@/components/DropDown/DropDownFilter";
 
 export default async function PhotographerPage({
   params,
@@ -13,7 +14,7 @@ export default async function PhotographerPage({
   return (
     <div>
        <BannerPhotographer photographer={photographer} />
-       {/** TODO Photographer gaellery filter */}
+       <DropDownFilter />
        {/** TODO Photographer gallery */}
 
     </div>
