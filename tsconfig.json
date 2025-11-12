@@ -6,7 +6,8 @@
       "@/services/*": ["services/*"],
       "@/actions/*": ["actions/*"],
       "@/types/*": ["types/*"],
-      "@/lib/*": ["lib/*"]
+      "@/lib/*": ["lib/*"],
+      "@/context/*": ["context/*"]
     },
     "target": "ES2020",
     "lib": [

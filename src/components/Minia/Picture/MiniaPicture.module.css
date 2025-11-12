@@ -1,0 +1,28 @@
+.miniapicture__article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+}
+
+.miniapicture__article_img{
+    width: 350px;
+    height: 300px;
+}
+
+
+.miniapicture__article_title {
+    color: var(--primary-font-light);
+    font-family: var(--font-dm-sans);
+    font-size: 36;
+    white-space: nowrap;
+}
+
+
+.miniapicture__article_span {
+    color: #757575;
+    font-family: var(--font-dm-sans);
+    font-size: 9;
+}

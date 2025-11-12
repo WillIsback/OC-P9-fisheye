@@ -1,4 +1,5 @@
-import { fetchPhotographers } from "@/actions/prisma.action"
+import { fetchPhotographers, fetchPictures } from "@/actions/prisma.action"
+
 
 export type Photographers = Awaited<ReturnType<typeof fetchPhotographers>> 
 export type EnhancedPhotographers =  Array<
@@ -11,3 +12,5 @@ export type EnhancedPhotographers =  Array<
 export type Photographer = Photographers[number];
 export type EnhancedPhotographer = EnhancedPhotographers[number];
 
+export type Pictures = Awaited<ReturnType<typeof fetchPictures>>;
+export type Picture = Pictures[number];

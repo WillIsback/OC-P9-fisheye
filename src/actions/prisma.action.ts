@@ -1,5 +1,5 @@
 'use server';
-import { getAllPhotographers, getPhotographer } from "@/services/prisma.service";
+import { getAllPhotographers, getPhotographer, getAllMediasForPhotographer } from "@/services/prisma.service";
 import { getRatioCorrection } from "@/lib/utils";
 
 async function fetchPhotographers ()
@@ -42,6 +42,23 @@ async function fetchPhotographer (photographerId : number)
 
 }
 
+async function fetchPictures (photographerId: number) {
+    try {
+        const pictures = await getAllMediasForPhotographer(photographerId);
+        const enhancedPictures = await Promise.all(
+            pictures.map(async p => ({
+            ...p,
+            RatioCorrection: (p.image ? await getRatioCorrection(p.image) : null)
+            }))
+        );
+        return enhancedPictures;
+    } catch (e) {
+        console.error("Erreur de recupération des pictures :", e)
+        throw new Error("Erreur de recupération des pictures");
+    }
+}
 
 
-export { fetchPhotographers, fetchPhotographer }
+
+
+export { fetchPhotographers, fetchPhotographer, fetchPictures}
