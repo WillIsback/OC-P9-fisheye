@@ -1,6 +1,6 @@
 'use server';
 import { getAllPhotographers, getPhotographer, getAllMediasForPhotographer } from "@/services/prisma.service";
-import { getRatioCorrection } from "@/lib/utils";
+import { getRatioCorrection, getFocusCorrection} from "@/lib/utils";
 
 async function fetchPhotographers ()
 {
@@ -48,7 +48,7 @@ async function fetchPictures (photographerId: number) {
         const enhancedPictures = await Promise.all(
             pictures.map(async p => ({
             ...p,
-            RatioCorrection: (p.image ? await getRatioCorrection(p.image) : null)
+            Focus: (p.image ? await getFocusCorrection(p.image) : null)
             }))
         );
         return enhancedPictures;

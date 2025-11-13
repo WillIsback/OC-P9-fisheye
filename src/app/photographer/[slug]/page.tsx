@@ -2,8 +2,8 @@ import { fetchPhotographer, fetchPictures } from "@/actions/prisma.action"
 import BannerPhotographer from "@/components/Header/BannerPhotographer/BannerPhotographer";
 import DropDownFilter from "@/components/DropDown/DropDownFilter";
 import FilterProvider from "@/context/FilterProvider";
-import GridPicture from "@/components/Grid/GridPicture/GridPicture";
-
+import GridWorks from "@/components/Grid/GridWorks/GridWorks";
+import styles from './page.module.css'
 export default async function PhotographerPage({
   params,
 }: {
@@ -15,11 +15,11 @@ export default async function PhotographerPage({
 
   console.log("photographer :", photographer);
   return (
-    <div>
+    <div className={styles.photographerpage}>
        <BannerPhotographer photographer={photographer} />
        <FilterProvider>
-        <DropDownFilter />
-        <GridPicture pictures={pictures}/>
+          <DropDownFilter />
+          <GridWorks pictures={pictures}/>
        </FilterProvider>
     </div>
   )

@@ -27,4 +27,17 @@ async function getRatioCorrection (image : string){
     }
 }
 
-export { getRatioCorrection };
+async function getFocusCorrection (image : string){
+    const imageRatio = await getImageRatio(image);
+    if(imageRatio < 0.73){
+        return {focusX: '30%', focusY: '10%'}
+    }
+    else if(imageRatio >= 0.73){
+        return {focusX: '30%', focusY: '40%'}
+    }
+    else{
+        return {focusX: '50%', focusY: '50%'}
+    }
+}
+
+export { getRatioCorrection, getFocusCorrection };

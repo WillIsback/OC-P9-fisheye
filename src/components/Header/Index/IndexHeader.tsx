@@ -2,6 +2,7 @@
 
 import styles from './IndexHeader.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export default function IndexHeader (){
@@ -11,12 +12,14 @@ export default function IndexHeader (){
     return (
         <header className={styles.index__header}>
             <div className={styles.index__header_logo} aria-details='website index clickable logo'>
-                <Image
-                    src="/logo.svg"
-                    alt="website index clickable logo"
-                    width={200}
-                    height={50}
-                />
+                <Link href='/'>
+                    <Image
+                        src="/logo.svg"
+                        alt="website index clickable logo"
+                        width={200}
+                        height={50}
+                    />
+                </Link>
             </div>
             {(pathname ==='/' && pathname !=null) &&
                 <h1 className={styles.index__header_title} aria-details='static title'>

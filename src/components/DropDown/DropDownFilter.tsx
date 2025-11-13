@@ -9,9 +9,10 @@ export default function DropDownFilter () {
     const [isDeploy, setDeploy] = useState(false);
     return (
         <section className={styles.dropdownfilter__section}>
+            <h2>Trié par </h2>
             <ul className={styles.dropdownlist}>
                 <li className={styles.dropdownlist__default}>
-                    <button type='button' 
+                    <button type='button'
                         onClick={()=>setActiveFilter(0)}
                     >
                         <span>Popularité</span>
@@ -23,7 +24,7 @@ export default function DropDownFilter () {
                         <span>Date</span>
                     </button>
                 </li>
-                 <li className={!isDeploy ? styles.dropdownlist__hidden : styles.dropdownlist__displayed}>
+                <li className={!isDeploy ? styles.dropdownlist__hidden : styles.dropdownlist__displayed}>
                     <button type='button' onClick={()=>setActiveFilter(2)}>
                         <span>Titre</span>
                     </button>
