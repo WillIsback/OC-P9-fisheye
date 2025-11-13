@@ -27,16 +27,34 @@ async function getRatioCorrection (image : string){
     }
 }
 
-async function getFocusCorrection (image : string){
-    const imageRatio = await getImageRatio(image);
-    if(imageRatio < 0.73){
-        return {focusX: '30%', focusY: '10%'}
+
+type FocusPosition = { focusX: string; focusY: string }
+type PhotoCategory = 'animals' | 'architecture' | 'art' | 'event' | 'fashion'  | 'portrait' | 'sport' | 'travel'
+
+const photoCategoriesMap: Record<PhotoCategory, FocusPosition> = {
+    'animals': { focusX: '30%', focusY: '30%' },
+    'architecture': { focusX: '0%', focusY: '50%' },
+    'art': { focusX: '30%', focusY: '30%' },
+    'event': { focusX: '30%', focusY: '30%' },
+    'fashion': { focusX: '30%', focusY: '10%' },
+    'portrait': { focusX: '30%', focusY: '40%' },
+    'sport': { focusX: '30%', focusY: '40%' }, // focusY =  - monte + descend
+    'travel': { focusX: '30%', focusY: '30%' },
+}
+
+function getImagePattern (image: string){
+    return image.split('_')[0].toLocaleLowerCase() || null;
+}
+function isPhotoCategory(str: string): str is PhotoCategory {
+    return (str in photoCategoriesMap)
+}
+function getFocusCorrection (image : string){
+    const imagePattern = getImagePattern(image);
+    if(imagePattern && isPhotoCategory(imagePattern)){
+        return photoCategoriesMap[imagePattern];
     }
-    else if(imageRatio >= 0.73){
-        return {focusX: '30%', focusY: '40%'}
-    }
-    else{
-        return {focusX: '50%', focusY: '50%'}
+    else {
+        throw new Error("L'image pattern n'existe pas ou n'est pas reconnu");
     }
 }
 

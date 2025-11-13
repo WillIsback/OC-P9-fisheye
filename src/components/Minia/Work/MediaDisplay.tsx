@@ -15,9 +15,6 @@ export default function MediaDisplay (
     readonly focus: {focusX: string, focusY: string} | null,
   }
 ) {
-  const foc = useMemo(() => {
-    return (focus?.focusX ? `${focus?.focusX} ${focus?.focusY}` : '50% 50%')
-  },[focus]);
 
   const media = useMemo(() => {
       if(image){
@@ -29,7 +26,7 @@ export default function MediaDisplay (
                       objectFit: 'cover',
                       width: '350px',
                       height: '300px',
-                      objectPosition: foc,
+                      objectPosition: `${focus?.focusX} ${focus?.focusY}`,
                   }}
                   width={350}
                   height={300}
