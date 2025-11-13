@@ -15,7 +15,15 @@ export default function MiniaWork(    {
     return(
         <article className={styles.miniawork__article} aria-details='Carte et miniature des photographes du site'>
             <div className={styles.miniawork__article_media}>
-                <MediaDisplay image={image} video={video} title={title} focus={Focus} />
+                <MediaDisplay
+                    image={image}
+                    video={video}
+                    title={title}
+                    focus={Focus}
+                    width={350}
+                    height={300}
+                    objectfit="cover"
+                />
             </div>
             <div className={styles.miniawork__article_content}>
                 <h3 className={styles.miniawork__article_title}>{title}</h3>

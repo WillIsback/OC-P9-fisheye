@@ -4,19 +4,21 @@ import DropDownFilter from "@/components/DropDown/DropDownFilter";
 import FilterProvider from "@/context/FilterProvider";
 import GridWorks from "@/components/Grid/GridWorks/GridWorks";
 import styles from './page.module.css'
+
+
 export default async function PhotographerPage({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ photographer: string }>
 }) {
-  const { slug } = await params
-  const photographer = await fetchPhotographer(Number(slug));
-  const pictures = await fetchPictures(Number(slug));
+  const { photographer } = await params;
+  const photographerData = await fetchPhotographer(Number(photographer));
+  const pictures = await fetchPictures(Number(photographerData.id));
 
   console.log("photographer :", photographer);
   return (
     <div className={styles.photographerpage}>
-       <BannerPhotographer photographer={photographer} />
+       <BannerPhotographer photographer={photographerData} />
        <FilterProvider>
           <DropDownFilter />
           <GridWorks pictures={pictures}/>

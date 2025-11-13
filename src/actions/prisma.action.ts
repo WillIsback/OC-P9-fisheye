@@ -48,7 +48,7 @@ async function fetchPictures (photographerId: number) {
         const enhancedPictures = await Promise.all(
             pictures.map(async p => ({
             ...p,
-            Focus: (p.image ? await getFocusCorrection(p.image) : null)
+            Focus: (p.image ? getFocusCorrection(p.image) : null)
             }))
         );
         return enhancedPictures;

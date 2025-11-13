@@ -5,6 +5,7 @@ import MiniaWork from '@/components/Minia/Work/MiniaWork'
 import { useContext } from 'react';
 import { FilterContext } from '@/context/FilterProvider';
 import { handleSortingFilter } from '@/lib/utils.client';
+import Link from 'next/link';
 
 export default function GridWorks ({
     pictures,
@@ -20,10 +21,12 @@ export default function GridWorks ({
   return (
     <section className={styles.gridworks__section}>
       {sortedPicture.map((picture) => (
-        <MiniaWork
-          key={picture.id}
-          picture={picture}
-        />
+        <Link key={picture.id} href={`/photographer/${picture.photographerId}/photo/${picture.id}`}>
+          <MiniaWork
+            key={picture.id}
+            picture={picture}
+          />
+        </Link>
       ))}
     </section>
   );

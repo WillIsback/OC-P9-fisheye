@@ -7,12 +7,18 @@ export default function MediaDisplay (
     video,
     title,
     focus,
+    width,
+    height,
+    objectfit,
   } :
   {
     readonly image: string | null,
     readonly video: string | null,
     readonly title: string,
     readonly focus: {focusX: string, focusY: string} | null,
+    readonly width : number,
+    readonly height: number,
+    readonly objectfit: 'contain' | 'cover'
   }
 ) {
 
@@ -23,13 +29,13 @@ export default function MediaDisplay (
                   src={`/assets/${image}`}
                   alt={`image ${title}`}
                   style={{
-                      objectFit: 'cover',
-                      width: '350px',
-                      height: '300px',
+                      objectFit: `${objectfit}`,
+                      width: `${width}px`,
+                      height: `${height}px`,
                       objectPosition: `${focus?.focusX} ${focus?.focusY}`,
                   }}
-                  width={350}
-                  height={300}
+                  width={width}
+                  height={height}
               />
           )
       } else {
