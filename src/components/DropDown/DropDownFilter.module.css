@@ -3,6 +3,7 @@
     flex-direction: row;
     align-items: center;
     position: relative;
+    padding: 0px 100px;
     height: 69px;
     h2 {
     font-family: var(--font-dm-sans);
@@ -22,7 +23,7 @@ box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 30%);
     height: auto;
     position: absolute;
     top: 10%;
-    left: 96px;
+    left: 196px;
     z-index: 10;
     background-color: var(--primary-bg-dark);
     color: var(--primary-font-dark);

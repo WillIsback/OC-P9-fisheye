@@ -1,6 +1,6 @@
 import { fetchPictures } from "@/actions/prisma.action";
-import MediaDisplay from "@/components/Minia/Work/MediaDisplay";
-
+import styles from './page.module.css'
+import { BigMediaDisplay } from "@/components/Minia/Work/MediaDisplay";
 export default async function PhotoPage({
   params,
 }: {
@@ -13,15 +13,13 @@ export default async function PhotoPage({
 
   if(!picture)return<div>loading ...</div>
 
-  return <div className="card">
-    <MediaDisplay
-      image={picture?.image}
-      video={picture?.video}
-      title={picture?.title}
-      focus={picture?.Focus}
-      width={1242}
-      height={900}
-      objectfit="contain"
-    />
-  </div>
+  return (
+      <BigMediaDisplay
+          image={picture.image}
+          video={picture.video}
+          title={picture.title}
+          width={1050}
+          height={900}
+      />
+  )
 }

@@ -1,7 +1,7 @@
 import { type Picture } from "@/types/types";
 import styles from './MiniaWork.module.css';
 import Image from "next/image";
-import MediaDisplay from "./MediaDisplay";
+import { MiniMediaDisplay } from "./MediaDisplay";
 
 export default function MiniaWork(    {
         picture
@@ -15,7 +15,7 @@ export default function MiniaWork(    {
     return(
         <article className={styles.miniawork__article} aria-details='Carte et miniature des photographes du site'>
             <div className={styles.miniawork__article_media}>
-                <MediaDisplay
+                <MiniMediaDisplay
                     image={image}
                     video={video}
                     title={title}

@@ -41,3 +41,18 @@
     flex-direction: row;
     align-items: center;
 }
+
+
+
+.bigmedia__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+        color: var(--secondary-font-3);
+        font-family: var(--font-dm-sans);
+        font-size: 24;
+        font-weight: 400;
+        white-space: nowrap;
+    }
+}

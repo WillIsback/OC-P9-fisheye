@@ -60,4 +60,4 @@ function getFocusCorrection (image : string){
 }
 
 
-export { getRatioCorrection, getFocusCorrection };
+export { getRatioCorrection, getFocusCorrection};

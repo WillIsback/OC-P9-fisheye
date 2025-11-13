@@ -94,7 +94,7 @@ a {
 
 
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -107,21 +107,22 @@ a {
 }
 
 .modal {
-  width: 80%;
-  max-width: 500px;
-  height: auto;
-  max-height: 500px;
+  width: 95vw;
+  max-height: 85vw;
   border: none;
   border-radius: 12px;
   background-color: white;
-  padding: 20px;
-  position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 48px;
-  font-weight: 500;
+  position: fixed;
+  padding: 40px 100px 0px 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
 }
+
 .close-button {
   position: absolute;
   top: 10px;

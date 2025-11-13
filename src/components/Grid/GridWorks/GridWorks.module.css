@@ -4,8 +4,6 @@
     flex-wrap: wrap;
     row-gap: 80px;
     column-gap: 95px;
-    article{
-        width: 25%;
-    }
+    padding: 0px 100px;
 
 }

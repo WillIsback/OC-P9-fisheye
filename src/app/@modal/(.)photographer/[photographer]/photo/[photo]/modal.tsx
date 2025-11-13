@@ -1,12 +1,12 @@
 'use client';
 
-import { type ElementRef, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 
 export function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const dialogRef = useRef<ElementRef<'dialog'>>(null);
+  const dialogRef = useRef<React.ComponentRef<'dialog'>>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
