@@ -108,45 +108,36 @@ a {
 
 .modal {
   width: 95vw;
-  max-height: 85vw;
+  max-height: 1024px;
+  max-width: 1440px;
   border: none;
   border-radius: 12px;
   background-color: white;
   justify-content: center;
   align-items: center;
   position: fixed;
-  padding: 40px 100px 0px 100px;
+  padding: 62px 99px 0px 99px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 48px;
-  height: 48px;
+  top: 62px;
+  right: 84px;
+  width: 72px;
+  height: 72px;
   background-color: transparent;
   border: none;
-  border-radius: 15px; /* Circular shape */
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 500;
   font-size: 24px; /* Adjust font size as needed */
-}
-
-.close-button:hover {
-  background-color: #eee;
-}
-
-.close-button:after {
-  content: 'x';
-  color: black;
 }
 
 
