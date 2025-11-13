@@ -1,6 +1,6 @@
 'use server';
 import { getAllPhotographers, getPhotographer, getAllMediasForPhotographer } from "@/services/prisma.service";
-import { getRatioCorrection, getFocusCorrection} from "@/lib/utils";
+import { getRatioCorrection, getFocusCorrection } from '@/lib/utils.server'
 
 async function fetchPhotographers ()
 {

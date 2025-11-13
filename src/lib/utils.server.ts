@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { type Pictures } from '@/types/types';
 const { imageSizeFromFile } = require('image-size/fromFile')
 
 const rootDir = path.dirname('tsconfig.json');
@@ -57,5 +58,6 @@ function getFocusCorrection (image : string){
         throw new Error("L'image pattern n'existe pas ou n'est pas reconnu");
     }
 }
+
 
 export { getRatioCorrection, getFocusCorrection };
