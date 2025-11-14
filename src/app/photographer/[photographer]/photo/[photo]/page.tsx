@@ -1,19 +1,38 @@
-import { fetchPictures } from "@/actions/prisma.action";
-import styles from './page.module.css'
+'use client';
 import { BigMediaDisplay } from "@/components/Minia/Work/MediaDisplay";
-export default async function PhotoPage({
-  params,
-}: {
-  params: Promise<{ photographer: string, photo: string }>
-}) {
-  const { photographer, photo } = await params;
-  console.log("photo param :", photo, photographer)
-  const allPics = await fetchPictures(Number(photographer));
-  const picture = allPics.find((picture) => picture.id === Number(photo));
+import { type Picture } from "@/types/types";
+import Image from "next/image";
+import Link from "next/link";
+import { type SortCategory } from "@/types/types";
 
-  if(!picture)return<div>loading ...</div>
+export default function PhotoPage({
+  picture,
+  nextPhotoId,
+  prevPhotoId,
+  sort,
+}: {
+  readonly picture: Picture,
+  readonly nextPhotoId: number,
+  readonly prevPhotoId: number,
+  readonly sort : SortCategory,
+}) {
+
+  if(!picture)return <div>Loading ...</div>
+
+  const baseUrl = `/photographer/${picture?.photographerId}/photo`;
 
   return (
+    <>
+        <Link href={`${baseUrl}/${prevPhotoId}?sort=${sort}`} className="modal__btn_nav" replace>
+          <span>
+            <Image 
+              src='/modal_chevron_left.svg'
+              width={42}
+              height={42}
+              alt='button to close modal'
+            />
+          </span>
+        </Link>
       <BigMediaDisplay
           image={picture.image}
           video={picture.video}
@@ -21,5 +40,16 @@ export default async function PhotoPage({
           width={1050}
           height={900}
       />
+      <Link href={`${baseUrl}/${nextPhotoId}?sort=${sort}`} className="modal__btn_nav" replace>
+          <span>
+            <Image 
+              src='/modal_chevron_right.svg'
+              width={42}
+              height={42}
+              alt='button to close modal'
+            />
+          </span>
+        </Link>
+    </>
   )
 }

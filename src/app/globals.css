@@ -108,8 +108,8 @@ a {
 
 .modal {
   width: 95vw;
-  max-height: 1024px;
-  max-width: 1440px;
+  max-height: 100vh;
+  max-width: 100vw;
   border: none;
   border-radius: 12px;
   background-color: white;

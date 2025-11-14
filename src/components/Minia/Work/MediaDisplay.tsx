@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { getVisibleWidth } from "@/lib/utils.client";
 import styles from './MiniaWork.module.css'
+import { Spinner } from "@/components/components/ui/spinner";
 
 function MiniMediaDisplay (
   {
@@ -90,6 +91,8 @@ function BigMediaDisplay (
                   width={width}
                   height={height}
                   onLoad={(e) => handleOnLoad(e.currentTarget)}
+                  placeholder="blur"
+                  blurDataURL="/logo.svg" 
               />
           )
       } else {

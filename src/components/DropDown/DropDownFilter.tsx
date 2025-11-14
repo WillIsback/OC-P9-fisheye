@@ -1,33 +1,34 @@
 'use client';
 import styles from './DropDownFilter.module.css'
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import BtnDropDown from '../Button/BtnDropDown';
-import { FilterContext } from '@/context/FilterProvider';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function DropDownFilter () {
-    const [activeFilter, setActiveFilter] = useContext(FilterContext);
     const [isDeploy, setDeploy] = useState(false);
+    const pathname = usePathname()
+
+
     return (
         <section className={styles.dropdownfilter__section}>
             <h2>Trié par </h2>
             <ul className={styles.dropdownlist}>
                 <li className={styles.dropdownlist__default}>
-                    <button type='button'
-                        onClick={()=>setActiveFilter(0)}
-                    >
+                    <Link href={`${pathname}?sort=popularite`}>
                         <span>Popularité</span>
-                    </button>
+                    </Link>
                     <BtnDropDown setDeploy={setDeploy} isDeploy={isDeploy}/>
                 </li>
                 <li className={!isDeploy ? styles.dropdownlist__hidden : styles.dropdownlist__displayed}>
-                    <button type='button' onClick={()=>setActiveFilter(1)}>
+                    <Link href={`${pathname}?sort=date`}>
                         <span>Date</span>
-                    </button>
+                    </Link>
                 </li>
                 <li className={!isDeploy ? styles.dropdownlist__hidden : styles.dropdownlist__displayed}>
-                    <button type='button' onClick={()=>setActiveFilter(2)}>
+                    <Link href={`${pathname}?sort=titre`}>
                         <span>Titre</span>
-                    </button>
+                    </Link>
                 </li>
             </ul>
         </section>

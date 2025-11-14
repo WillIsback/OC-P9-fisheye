@@ -1,14 +1,16 @@
 import { type Pictures } from "@/types/types";
 
-function handleSortingFilter (idx: number, media: Pictures){
+function handleSortingFilter (sort: string | null, media: Pictures){
     let tempMedia = [...media];
-    switch (idx){
-        case 0: // Popularité (nombre de like dans Pictures[number].likes)
+    switch (sort){
+        case 'popularite': // Popularité (nombre de like dans Pictures[number].likes)
             return tempMedia.sort((a,b) => (b.likes - a.likes))
-        case 1: // Date (ordoné par date dans Pictures[number].date)
+        case 'date': // Date (ordoné par date dans Pictures[number].date)
             return tempMedia.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        case 2: // Titre (ordoné par titre ordre alphabetique dans Pictures[number].title)
+        case 'titre': // Titre (ordoné par titre ordre alphabetique dans Pictures[number].title)
             return tempMedia.sort((a, b) => a.title.localeCompare(b.title))
+        default:
+            return tempMedia;
     }
 }
 

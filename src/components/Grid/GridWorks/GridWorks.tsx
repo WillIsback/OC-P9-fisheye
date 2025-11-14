@@ -2,26 +2,28 @@
 import styles from './GridWorks.module.css'
 import { type Pictures } from '@/types/types'
 import MiniaWork from '@/components/Minia/Work/MiniaWork'
-import { useContext } from 'react';
-import { FilterContext } from '@/context/FilterProvider';
 import { handleSortingFilter } from '@/lib/utils.client';
 import Link from 'next/link';
+import { useSearchParams, usePathname } from 'next/navigation';
 
 export default function GridWorks ({
     pictures,
   }:  {
     readonly pictures: Pictures,
   }){
-    const [activeFilter, _setActiveFilter] = useContext(FilterContext);
-    console.log("pictures : ", pictures)
+    const searchParams = useSearchParams();
+    const pathName = usePathname();
+    const sort = searchParams.get('sort');
 
-    const sortedPicture = handleSortingFilter(activeFilter, pictures);
+    console.log("searchParams : ", sort)
+
+    const sortedPicture = handleSortingFilter(sort, pictures);
     if (sortedPicture === undefined)return <div>Loading ...</div>
 
   return (
     <section className={styles.gridworks__section}>
       {sortedPicture.map((picture) => (
-        <Link key={picture.id} href={`/photographer/${picture.photographerId}/photo/${picture.id}`}>
+        <Link key={picture.id} href={`${pathName}/photo/${picture.id}?sort=${sort}`}>
           <MiniaWork
             key={picture.id}
             picture={picture}

@@ -18,7 +18,7 @@ export default function MiniaPhotographer(
     return (
         <article className={styles.miniaphotographer__article} aria-details='Carte et miniature des photographes du site'>
             <div className={styles.miniaphotographer__article_img}>
-                <Link href={`/photographer/${id}`} aria-label={`Voir la page du photographe ${name}`}>
+                <Link href={`/photographer/${id}?sort=popularite`} aria-label={`Voir la page du photographe ${name}`}>
                 <Image
                     src={`/assets/${portrait}`}
                     alt={`image portrait du photographe ${name}`}
