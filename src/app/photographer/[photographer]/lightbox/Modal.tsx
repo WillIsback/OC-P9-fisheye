@@ -4,8 +4,20 @@ import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import LbMedia from './LbMedia';
+import { SortCategory, Picture } from '@/types/types';
 
-export function Modal({ children }: { children: React.ReactNode }) {
+export default function Modal({
+  picture,
+  nextMediaId,
+  prevMediaId,
+  sort,
+}: {
+  readonly picture: Picture | null,
+  readonly nextMediaId: number,
+  readonly prevMediaId: number,
+  readonly sort : SortCategory,
+}) {
   const router = useRouter();
   const dialogRef = useRef<React.ComponentRef<'dialog'>>(null);
 
@@ -13,19 +25,6 @@ export function Modal({ children }: { children: React.ReactNode }) {
     dialogRef.current?.showModal();
   }, []);
 
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    const handleKeydown = (event: KeyboardEvent) => {
-      event.preventDefault();
-      if(event.key === "Escape"){
-        dialog?.close();
-      }
-    };
-    dialog?.addEventListener("keydown", handleKeydown);
-    return () => {
-      dialog?.removeEventListener("keydown", handleKeydown);
-    };
-  },[router]);
 
   function onDismiss() {
     router.back();
@@ -43,8 +42,14 @@ export function Modal({ children }: { children: React.ReactNode }) {
             alt='button to close modal'
           />
         </button>
-        {children}
-      </dialog>
+            <LbMedia 
+                picture={picture}
+                nextMediaId={nextMediaId} 
+                prevMediaId={prevMediaId}
+                sort={sort}
+                dialogRef={dialogRef}
+            />
+        </dialog>
     </div>,
     document.getElementById('modal-root')!
   );

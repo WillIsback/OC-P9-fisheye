@@ -1,6 +1,10 @@
 import path from 'node:path'
-import { type Pictures } from '@/types/types';
+import { Pictures, SortCategory} from '@/types/types';
+import { VALID_SORTS } from "@/lib/constants";
+
 const { imageSizeFromFile } = require('image-size/fromFile')
+
+type QueryParamValue = string | string[] | undefined;
 
 const rootDir = path.dirname('tsconfig.json');
 
@@ -59,5 +63,34 @@ function getFocusCorrection (image : string){
     }
 }
 
+function handleSortingFilter (sort: string | null, media: Pictures){
+    let tempMedia = [...media];
+    switch (sort){
+        case 'popularite': // Popularité (nombre de like dans Pictures[number].likes)
+            return tempMedia.sort((a,b) => (b.likes - a.likes))
+        case 'date': // Date (ordoné par date dans Pictures[number].date)
+            return tempMedia.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        case 'titre': // Titre (ordoné par titre ordre alphabetique dans Pictures[number].title)
+            return tempMedia.sort((a, b) => a.title.localeCompare(b.title))
+        default:
+            return tempMedia;
+    }
+}
+function isSortCategory(value: QueryParamValue): value is SortCategory {
+  return typeof value === 'string' && (VALID_SORTS as readonly string[]).includes(value);
+}
+function isMediaId(mediaId: QueryParamValue){
+    return (mediaId != null && mediaId != undefined)
+}
 
-export { getRatioCorrection, getFocusCorrection};
+function getMediaNavIndex (media : Pictures, mediaId: QueryParamValue){
+  const sortedIds = media.map((p) => p.id);
+  const currentIndex = sortedIds.indexOf(Number(mediaId));
+  const nextIndex = (currentIndex + 1) % sortedIds.length;
+  const nextMediaId = sortedIds[nextIndex];
+  const prevIndex = (currentIndex - 1 + sortedIds.length) % sortedIds.length;
+  const prevMediaId = sortedIds[prevIndex];
+  return [nextMediaId, prevMediaId]
+}
+
+export { getRatioCorrection, getFocusCorrection, isSortCategory, handleSortingFilter, isMediaId, getMediaNavIndex};

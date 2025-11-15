@@ -90,8 +90,7 @@ function BigMediaDisplay (
                   alt={`image ${title}`}
                   style={{
                       objectFit: 'contain',
-                      maxWidth: `1050px`,
-                      maxHeight: `900px`,
+                      maxHeight: `85vh`,
                   }}
                   width={width}
                   height={height}
@@ -102,7 +101,7 @@ function BigMediaDisplay (
           )
       } else {
           return (
-              <video width="350" height="300" controls preload="none">
+              <video width={width} height={height} controls preload="none" style={{maxHeight: `85vh`}}>
                   <source src={`/assets/${video}`} type="video/mp4" />
                   <track kind="captions" />
                   Your browser does not support the video tag.
