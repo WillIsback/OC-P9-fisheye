@@ -1,45 +1,44 @@
+'use client';
 import { type Picture } from "@/types/types";
 import styles from './MiniaWork.module.css';
-import Image from "next/image";
 import { MiniMediaDisplay } from "./MediaDisplay";
-
-export default function MiniaWork(    {
-        picture
-    }:
-    {
-        readonly picture: Picture
-    }){
-
-
+import Link from "next/link";
+import { useSearchParams, usePathname } from 'next/navigation';
+import BtnLike from "@/components/Button/BtnLike";
+export default function MiniaWork(    
+{
+    picture
+}:
+{
+    readonly picture: Picture
+}){
+    const searchParams = useSearchParams();
+    const pathName = usePathname();
+    const sort = searchParams.get('sort')
+    const url = `${pathName}/?sort=${sort}&mediaId=${picture.id}`
     const { title, image, video, likes, Focus } = picture;
     return(
-        <article className={styles.miniawork__article} aria-labelledby='Carte et miniature des photographes du site'>
+        <article className={styles.miniawork__article} aria-labelledby={`Carte et miniature de l'image ${title}`}>
             <div className={styles.miniawork__article_media}>
-                <MiniMediaDisplay
-                    image={image}
-                    video={video}
-                    title={title}
-                    focus={Focus}
-                    width={350}
-                    height={300}
-                    objectfit="cover"
-                />
+                <Link href={url}>
+                    <MiniMediaDisplay
+                        image={image}
+                        video={video}
+                        title={title}
+                        focus={Focus}
+                        width={350}
+                        height={300}
+                        objectfit="cover"
+                    />
+                </Link>
             </div>
             <div className={styles.miniawork__article_content}>
                 <h3 className={styles.miniawork__article_title}>{title}</h3>
-                <span className={styles.miniawork__article_span}>{likes}
-                    <Image
-                        src='/like_icon.svg'
-                        alt={`compteur de like pour l'image ${title}`}
-                        width={17.5}
-                        height={18.35}
-                        style={{
-                            width: '21px',
-                            height: '24px',
-                            objectFit: 'fill',
-                        }}
-                    />
-                </span>
+                <BtnLike 
+                    initialLikes={likes}
+                    title={title}
+                    mediaId={picture.id}
+                />
             </div>
         </article>
     )
