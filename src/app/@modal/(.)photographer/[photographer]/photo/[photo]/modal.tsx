@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
@@ -8,26 +8,33 @@ import Image from 'next/image';
 export function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const dialogRef = useRef<React.ComponentRef<'dialog'>>(null);
-  const [mounted, setMounted] = useState(false);
-
-
 
   useEffect(() => {
-    setMounted(true);
     dialogRef.current?.showModal();
   }, []);
 
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    const handleKeydown = (event: KeyboardEvent) => {
+      event.preventDefault();
+      if(event.key === "Escape"){
+        dialog?.close();
+      }
+    };
+    dialog?.addEventListener("keydown", handleKeydown);
+    return () => {
+      dialog?.removeEventListener("keydown", handleKeydown);
+    };
+  },[router]);
+
   function onDismiss() {
-    dialogRef.current?.close();
     router.back();
   }
 
-  if (!mounted) return null;
 
   return createPortal(
     <div className="modal-backdrop">
       <dialog ref={dialogRef} className="modal" onClose={onDismiss}>
-        {children}
         <button onClick={onDismiss} className="close-button">
           <Image 
             src='/close_ic.svg'
@@ -36,6 +43,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
             alt='button to close modal'
           />
         </button>
+        {children}
       </dialog>
     </div>,
     document.getElementById('modal-root')!

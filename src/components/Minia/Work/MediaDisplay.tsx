@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { getVisibleWidth } from "@/lib/utils.client";
 import styles from './MiniaWork.module.css'
-import { Spinner } from "@/components/components/ui/spinner";
 
 function MiniMediaDisplay (
   {
@@ -47,11 +46,12 @@ function MiniMediaDisplay (
           return (
               <video width="350" height="300" controls preload="none">
                   <source src={`/assets/${video}`} type="video/mp4" />
+                  <track kind="captions" />
                   Your browser does not support the video tag.
               </video>
       )
       }
-    },[image, video]);
+    },[image, video, width, height, title, objectfit, focus]);
     return (
       <>
         {media}
@@ -76,7 +76,12 @@ function BigMediaDisplay (
     readonly height: number,
   }
 ) {
-
+    const [offset, setOffset] = useState(0);
+    function handleOnLoad(imgElement : HTMLImageElement){
+    const calculatedWidth = getVisibleWidth(imgElement);
+    const maringLeft = (imgElement.clientWidth - calculatedWidth) / 2;
+    setOffset(maringLeft);
+  }
   const media = useMemo(() => {
       if(image){
           return(
@@ -92,25 +97,20 @@ function BigMediaDisplay (
                   height={height}
                   onLoad={(e) => handleOnLoad(e.currentTarget)}
                   placeholder="blur"
-                  blurDataURL="/logo.svg" 
+                  blurDataURL="/logo.svg"
               />
           )
       } else {
           return (
               <video width="350" height="300" controls preload="none">
                   <source src={`/assets/${video}`} type="video/mp4" />
+                  <track kind="captions" />
                   Your browser does not support the video tag.
               </video>
       )
       }
-    },[image, video]);
-    const [offset, setOffset] = useState(0); 
+    },[image, video, width, height, title]);
 
-  function handleOnLoad(imgElement : HTMLImageElement){
-    const calculatedWidth = getVisibleWidth(imgElement);
-    const maringLeft = (imgElement.clientWidth - calculatedWidth) / 2;
-    setOffset(maringLeft);
-  }
   return (
     <div className={styles.bigmedia__content}>
       {media}
@@ -119,4 +119,4 @@ function BigMediaDisplay (
   )
 }
 
-export { MiniMediaDisplay ,BigMediaDisplay } 
+export { MiniMediaDisplay ,BigMediaDisplay }

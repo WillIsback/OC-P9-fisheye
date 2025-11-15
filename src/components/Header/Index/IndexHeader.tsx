@@ -11,18 +11,18 @@ export default function IndexHeader (){
 
     return (
         <header className={styles.index__header}>
-            <div className={styles.index__header_logo} aria-details='website index clickable logo'>
+            <div className={styles.index__header_logo} aria-labelledby='website index clickable logo'>
                 <Link href='/'>
                     <Image
                         src="/logo.svg"
-                        alt="website index clickable logo"
+                        alt="website index clickable logo to return home page"
                         width={200}
                         height={50}
                     />
                 </Link>
             </div>
             {(pathname ==='/' && pathname !=null) &&
-                <h1 className={styles.index__header_title} aria-details='static title'>
+                <h1 className={styles.index__header_title} aria-labelledby='static title'>
                     Nos Photographes
                 </h1>
             }

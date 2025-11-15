@@ -22,7 +22,7 @@ export default async function PhotoModal({
   const { photographer, photo } = await params;
   const allPics = await fetchPictures(Number(photographer));
 
-  if(!isSortCategory(sort)) return <div>Probleme avec le param 'sort'</div>
+  if(!isSortCategory(sort)) return <div>Probleme avec le param &apos;sort&apos;</div>
   const sortedPics = handleSortingFilter(sort, allPics) 
   const sortedIds = sortedPics.map((p) => p.id);
   const currentIndex = sortedIds.indexOf(Number(photo));
@@ -37,7 +37,7 @@ export default async function PhotoModal({
 
   console.log(`Actuel: ${Number(photo)}, Précédent: ${prevPhotoId}, Suivant: ${nextPhotoId}`);
 
-  if (!picture){return <div>Erreur dans la recuperation de l'image</div>}
+  if (!picture){return <div>Erreur dans la recuperation de l&apos;image</div>}
   return(
   <Modal>
     <PhotoPage 

@@ -18,7 +18,6 @@ async function fetchPhotographers ()
         console.error("Erreur de recupération des photographes :", e)
         throw new Error("Erreur de recupération des photographes");
     }
-
 }
 
 async function fetchPhotographer (photographerId : number)

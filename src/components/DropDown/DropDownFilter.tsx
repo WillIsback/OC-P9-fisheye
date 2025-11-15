@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function DropDownFilter () {
-    const [isDeploy, setDeploy] = useState(false);
+    const [isDeploy, setIsDeploy] = useState(false);
     const pathname = usePathname()
 
 
@@ -18,14 +18,14 @@ export default function DropDownFilter () {
                     <Link href={`${pathname}?sort=popularite`}>
                         <span>Popularité</span>
                     </Link>
-                    <BtnDropDown setDeploy={setDeploy} isDeploy={isDeploy}/>
+                    <BtnDropDown setDeploy={setIsDeploy} isDeploy={isDeploy}/>
                 </li>
-                <li className={!isDeploy ? styles.dropdownlist__hidden : styles.dropdownlist__displayed}>
+                <li className={isDeploy ? styles.dropdownlist__displayed : styles.dropdownlist__hidden}>
                     <Link href={`${pathname}?sort=date`}>
                         <span>Date</span>
                     </Link>
                 </li>
-                <li className={!isDeploy ? styles.dropdownlist__hidden : styles.dropdownlist__displayed}>
+                <li className={isDeploy ? styles.dropdownlist__displayed : styles.dropdownlist__hidden}>
                     <Link href={`${pathname}?sort=titre`}>
                         <span>Titre</span>
                     </Link>

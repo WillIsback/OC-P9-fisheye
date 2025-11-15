@@ -13,7 +13,7 @@ export default function MiniaWork(    {
 
     const { title, image, video, likes, Focus } = picture;
     return(
-        <article className={styles.miniawork__article} aria-details='Carte et miniature des photographes du site'>
+        <article className={styles.miniawork__article} aria-labelledby='Carte et miniature des photographes du site'>
             <div className={styles.miniawork__article_media}>
                 <MiniMediaDisplay
                     image={image}

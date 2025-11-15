@@ -1,9 +1,8 @@
 'use client';
 import { BigMediaDisplay } from "@/components/Minia/Work/MediaDisplay";
-import { type Picture } from "@/types/types";
+import { Picture,  SortCategory } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import { type SortCategory } from "@/types/types";
 
 export default function PhotoPage({
   picture,
@@ -29,7 +28,7 @@ export default function PhotoPage({
               src='/modal_chevron_left.svg'
               width={42}
               height={42}
-              alt='button to close modal'
+              alt='button to navigato to previous media'
             />
           </span>
         </Link>
@@ -46,7 +45,7 @@ export default function PhotoPage({
               src='/modal_chevron_right.svg'
               width={42}
               height={42}
-              alt='button to close modal'
+              alt='button to navigate to next media'
             />
           </span>
         </Link>
