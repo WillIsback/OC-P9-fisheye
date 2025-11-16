@@ -21,7 +21,7 @@ export default function BtnLike(
       <button
         type="button"
         className={styles.btnlike}
-        aria-labelledby="bouton pour ajouter un like a l'oeuvre"
+        aria-label="bouton pour ajouter un like a l'oeuvre"
         onClick={async () => {
           const updatedLikes = await incrementLike(`${mediaId}`, initialLikes)
           setLikes(updatedLikes)

@@ -2,6 +2,7 @@
 import { getAllPhotographers, getPhotographer, getAllMediasForPhotographer } from "@/services/prisma.service";
 import { getRatioCorrection, getFocusCorrection } from '@/lib/utils.server'
 
+
 async function fetchPhotographers ()
 {
     try {
@@ -16,7 +17,7 @@ async function fetchPhotographers ()
         return enhancedPhotographers;
     } catch (e) {
         console.error("Erreur de recupération des photographes :", e)
-        throw new Error("Erreur de recupération des photographes");
+        return null;
     }
 }
 
@@ -32,11 +33,11 @@ async function fetchPhotographer (photographerId : number)
             console.log("Photographer : ", photographer)
             return enhancedPhotographer;
         } else{
-            throw new Error("Photographers is null")
+            return null;
         }
     } catch (e) {
         console.error("Erreur de recupération des photographes :", e)
-        throw new Error("Erreur de recupération des photographes");
+        return null;
     }
 
 }
@@ -53,7 +54,7 @@ async function fetchPictures (photographerId: number) {
         return enhancedPictures;
     } catch (e) {
         console.error("Erreur de recupération des pictures :", e)
-        throw new Error("Erreur de recupération des pictures");
+        return null;
     }
 }
 

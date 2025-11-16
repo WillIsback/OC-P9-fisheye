@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import LbMedia from './LbMedia';
 import { SortCategory, Picture } from '@/types/types';
+import { useIsMounted } from '@/hooks/useIsMounted';
 
 export default function Modal({
   picture,
@@ -20,13 +21,16 @@ export default function Modal({
 }) {
   const router = useRouter();
   const dialogRef = useRef<React.ComponentRef<'dialog'>>(null);
+  const isMounted = useIsMounted();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    console.log('Modal useEffect - dialogRef:', dialogRef.current);
     dialogRef.current?.showModal();
   }, []);
 
+  if (!isMounted) return null
 
-  function onDismiss() {
+  function onDismiss() {  
     router.back();
   }
 

@@ -4,9 +4,11 @@ import { Suspense } from 'react';
 import Loading from '@/components/Loading/Loading';
 import GridPhotographer from '@/components/Grid/GridPhotographer/GridPhotographer';
 import { ErrorBoundary } from "react-error-boundary";
+import { notFound } from 'next/navigation';
 
 export default async function Home() {
   const photographers = await fetchPhotographers();
+  if(!photographers){notFound()}
 
   return (
     <div className={styles.page}>

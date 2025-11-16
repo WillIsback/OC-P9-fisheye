@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useRef, useEffect, RefObject } from "react";
 
+
+
 export default function LbMedia({
   picture,
   nextMediaId,
@@ -24,6 +26,7 @@ export default function LbMedia({
   const baseUrl = `/photographer/${picture?.photographerId}`;
 
   useEffect(()=>{
+    console.log('LbMedia useEffect - dialogRef:', dialogRef.current);
     const ref = dialogRef.current;
     function handleArrowKey(event: KeyboardEvent){
       if(event.key === "ArrowRight") {

@@ -18,7 +18,7 @@ export default function MiniaWork(
     const url = `${pathName}/?sort=${sort}&mediaId=${picture.id}`
     const { title, image, video, likes, Focus } = picture;
     return(
-        <article className={styles.miniawork__article} aria-labelledby={`Carte et miniature de l'image ${title}`}>
+        <article className={styles.miniawork__article} aria-label={`Carte et miniature de l'image ${title}`}>
             <div className={styles.miniawork__article_media}>
                 <Link href={url}>
                     <MiniMediaDisplay

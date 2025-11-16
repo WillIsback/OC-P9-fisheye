@@ -1,0 +1,27 @@
+.contactform{
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  input{
+    background-color: #ffffff;
+    color: #737373;
+    font-family: var(--font-dm-sans);
+    font-size: 36px;
+    font-weight: 400px;
+    border-radius: 5px;
+  }
+  textarea {
+    background-color: white;
+    height: 170px;
+    border-radius: 5px;
+  }
+  button{
+    margin-top: 25px;
+  }
+  label{
+    font-family: var(--font-dm-sans);
+    font-size: 36px;
+    font-weight: 400px;
+    color: #312E2E;
+  }
+}

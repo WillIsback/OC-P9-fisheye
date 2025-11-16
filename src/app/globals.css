@@ -140,6 +140,62 @@ a {
   font-size: 24px; /* Adjust font size as needed */
 }
 
+.nf{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.nf__h2{
+  font-family: var(--font-dm-sans);
+  color: var(--primary-font-light);
+  width: bold;
+  font-size: 32px;
+}
+.nf__p{
+  font-family: var(--font-dm-sans);
+  color: var(--secondary-font-2);
+  width: 300;
+  font-size: 18px;
+}
+.lbcontact__overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.lbcontact__content{
+  background: #DB8876;
+  padding: 15px 35px;
+  border-radius: 5px;
+  width: 45.46vw;
+  height: auto;
+  position: relative;
+  h2{
+    font-family: var(--font-dm-sans);
+    color: #000000;
+    font-size: 58px;
+    font-weight: 400px;
+    line-height: 1;
+  }
+}
+.lbcontact__close{
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 42px;
+  cursor: pointer;
+  color: white;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

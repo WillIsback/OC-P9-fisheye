@@ -11,7 +11,7 @@ export default function IndexHeader (){
 
     return (
         <header className={styles.index__header}>
-            <div className={styles.index__header_logo} aria-labelledby='website index clickable logo'>
+            <div className={styles.index__header_logo} aria-label='website index clickable logo'>
                 <Link href='/'>
                     <Image
                         src="/logo.svg"
@@ -22,7 +22,7 @@ export default function IndexHeader (){
                 </Link>
             </div>
             {(pathname ==='/' && pathname !=null) &&
-                <h1 className={styles.index__header_title} aria-labelledby='static title'>
+                <h1 className={styles.index__header_title} aria-label='static title'>
                     Nos Photographes
                 </h1>
             }
