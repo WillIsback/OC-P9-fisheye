@@ -1,0 +1,74 @@
+{
+  "Navigation": {
+    "logoAlt": "logo cliquable du site pour retourner à la page d'accueil",
+    "logoAriaLabel": "logo cliquable du site",
+    "titleAriaLabel": "titre statique"
+  },
+  "HomePage": {
+    "title": "Nos Photographes",
+    "metaTitle": "FishEye",
+    "metaDescription": "Portfolio de photographes"
+  },
+  "Contact": {
+    "buttonText": "Contactez-moi",
+    "modalTitle": "Contactez-moi",
+    "formFirstName": "Prénom",
+    "formFirstNameAriaLabel": "Prénom",
+    "formLastName": "Nom",
+    "formEmail": "Email",
+    "formMessage": "Votre message",
+    "submitButton": "Envoyer",
+    "closeFormAriaLabel": "Fermer le formulaire de contact",
+    "closeBackgroundAriaLabel": "Fermeture du formulaire de contact en cliquant sur l'arrière-plan"
+  },
+  "Filter": {
+    "sortBy": "Trié par",
+    "popularity": "Popularité",
+    "date": "Date",
+    "title": "Titre",
+    "dropdownIconAlt": "icône pour déplier le sélecteur du filtre de tri de la galerie photo"
+  },
+  "Photographer": {
+    "cardAriaLabel": "Carte et miniature des photographes du site",
+    "viewPageAriaLabel": "Voir la page du photographe {name}",
+    "portraitAlt": "image portrait du photographe {name}",
+    "pricePerDay": "{price}€/jour",
+    "metaTitle": "{name} - Photographe à {city}, {country}",
+    "metaDescription": "{tagline} - Découvrez le portfolio de {name}, photographe basé à {city}. Tarif: {price}€/jour",
+    "ogTitle": "{name} - Portfolio Photographe",
+    "ogPortraitAlt": "Portrait de {name}"
+  },
+  "Media": {
+    "cardAriaLabel": "Carte et miniature de l'image {title}",
+    "likeButtonAriaLabel": "bouton pour ajouter un like à l'œuvre",
+    "likeCounterAlt": "compteur de like pour l'image {title}",
+    "imageAlt": "image {title}",
+    "videoNotSupported": "Votre navigateur ne supporte pas la balise vidéo.",
+    "closeModalAlt": "bouton pour fermer la modale",
+    "previousMediaAlt": "bouton pour naviguer vers le média précédent",
+    "nextMediaAlt": "bouton pour naviguer vers le média suivant",
+    "loadError": "Erreur de récupération de l'image",
+    "imageMetaTitle": "Affichage de l'image {title}",
+    "videoMetaTitle": "Affichage de la vidéo {title}",
+    "mediaMetaDescription": "Média du photographe {name}, datant du {date}, {likes} likes. Tarif: {price}",
+    "mediaOgTitle": "{title} - Affichage du Média"
+  },
+  "Errors": {
+    "sortParamError": "Problème avec le paramètre 'sort'",
+    "notFoundTitle": "Non Trouvé",
+    "notFoundDescription": "La page que vous recherchez n'existe pas.",
+    "notFoundHeading": "Erreur 404 Page introuvable",
+    "notFoundMessage": "Impossible de trouver la ressource demandée",
+    "returnHome": "Retour à l'Accueil"
+  },
+  "Common": {
+    "loading": "Chargement"
+  },
+  "fallback": {
+    "message": "Quelque chose s'est mal passé!"
+  },
+  "Selector": {
+    "label": "FR",
+    "ariaLabel": "Selecteur controleur"
+  }
+}

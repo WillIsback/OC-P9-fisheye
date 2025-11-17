@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 
 // Le custom hook
 export const useIsMounted = () => {
-  const [isMountedRef, setIsMountedRef] = useState(false)
+	const [isMountedRef, setIsMountedRef] = useState(false);
 
-  useEffect(() => {
-    const checKIsMounted = () => {
-      setIsMountedRef(true)// Passe à true au montage
-    }
-    checKIsMounted();
-    return () => {
-      setIsMountedRef(false) // Passe à false au démontage
-    };
-  }, []); 
+	useEffect(() => {
+		const checKIsMounted = () => {
+			setIsMountedRef(true); // Passe à true au montage
+		};
+		checKIsMounted();
+		return () => {
+			setIsMountedRef(false); // Passe à false au démontage
+		};
+	}, []);
 
-  return isMountedRef;
+	return isMountedRef;
 };

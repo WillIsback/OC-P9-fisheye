@@ -1,0 +1,74 @@
+{
+  "Navigation": {
+    "logoAlt": "website index clickable logo to return home page",
+    "logoAriaLabel": "website index clickable logo",
+    "titleAriaLabel": "static title"
+  },
+  "HomePage": {
+    "title": "Our Photographers",
+    "metaTitle": "FishEye",
+    "metaDescription": "Portfolio of photographers"
+  },
+  "Contact": {
+    "buttonText": "Contact me",
+    "modalTitle": "Contact me",
+    "formFirstName": "First name",
+    "formFirstNameAriaLabel": "First name",
+    "formLastName": "Last name",
+    "formEmail": "Email",
+    "formMessage": "Your message",
+    "submitButton": "Send",
+    "closeFormAriaLabel": "Close contact form",
+    "closeBackgroundAriaLabel": "Close contact form by clicking on the background"
+  },
+  "Filter": {
+    "sortBy": "Sort by",
+    "popularity": "Popularity",
+    "date": "Date",
+    "title": "Title",
+    "dropdownIconAlt": "icon to unfold the gallery filter selector"
+  },
+  "Photographer": {
+    "cardAriaLabel": "Photographer card and thumbnail",
+    "viewPageAriaLabel": "View photographer {name}'s page",
+    "portraitAlt": "portrait image of photographer {name}",
+    "pricePerDay": "{price}€/day",
+    "metaTitle": "{name} - Photographer in {city}, {country}",
+    "metaDescription": "{tagline} - Discover the portfolio of {name}, photographer based in {city}. Rate: {price}€/day",
+    "ogTitle": "{name} - Photographer Portfolio",
+    "ogPortraitAlt": "Portrait of {name}"
+  },
+  "Media": {
+    "cardAriaLabel": "Media card and thumbnail of {title}",
+    "likeButtonAriaLabel": "button to add a like to the work",
+    "likeCounterAlt": "like counter for image {title}",
+    "imageAlt": "image {title}",
+    "videoNotSupported": "Your browser does not support the video tag.",
+    "closeModalAlt": "button to close modal",
+    "previousMediaAlt": "button to navigate to previous media",
+    "nextMediaAlt": "button to navigate to next media",
+    "loadError": "Error loading image",
+    "imageMetaTitle": "Displaying image {title}",
+    "videoMetaTitle": "Displaying video {title}",
+    "mediaMetaDescription": "Media by photographer {name}, dated {date}, {likes} likes. Price: {price}",
+    "mediaOgTitle": "{title} - Media Display"
+  },
+  "Errors": {
+    "sortParamError": "Problem with the 'sort' parameter",
+    "notFoundTitle": "Not Found",
+    "notFoundDescription": "The page you are looking for does not exist.",
+    "notFoundHeading": "Error 404 Page not found",
+    "notFoundMessage": "Could not find requested resource",
+    "returnHome": "Return Home"
+  },
+  "Common": {
+    "loading": "Loading"
+  },
+  "fallback": {
+    "message": "Something went wrong!"
+  },
+  "Selector": {
+    "label": "EN",
+    "ariaLabel": "Selector controller"
+  }
+}

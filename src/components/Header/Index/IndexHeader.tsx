@@ -1,31 +1,37 @@
-'use client'
+"use client";
 
-import styles from './IndexHeader.module.css'
-import Image from 'next/image'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import styles from "./IndexHeader.module.css";
+import LangSelector from "./LangSelector";
 
-export default function IndexHeader (){
-    const pathname = usePathname()
-    console.log("Current pathname :", (pathname ==='/' && pathname !=null));
+export default function IndexHeader() {
+	const pathname = usePathname();
+	const t = useTranslations("Navigation");
+	const tHome = useTranslations("HomePage");
 
-    return (
-        <header className={styles.index__header}>
-            <div className={styles.index__header_logo} aria-label='website index clickable logo'>
-                <Link href='/'>
-                    <Image
-                        src="/logo.svg"
-                        alt="website index clickable logo to return home page"
-                        width={200}
-                        height={50}
-                    />
-                </Link>
-            </div>
-            {(pathname ==='/' && pathname !=null) &&
-                <h1 className={styles.index__header_title} aria-label='static title'>
-                    Nos Photographes
-                </h1>
-            }
-        </header>
-    )
+	return (
+		<header className={styles.index__header}>
+			<Link
+				href="/"
+				className={styles.index__header_logo}
+				aria-label={t("logoAriaLabel")}
+			>
+				<Image src="/logo.svg" alt={t("logoAlt")} width={200} height={50} />
+			</Link>
+			<nav className={styles.index__header_langselector}>
+				<LangSelector />
+			</nav>
+			{pathname === "/" && pathname != null && (
+				<h1
+					className={styles.index__header_title}
+					aria-label={t("titleAriaLabel")}
+				>
+					{tHome("title")}
+				</h1>
+			)}
+		</header>
+	);
 }

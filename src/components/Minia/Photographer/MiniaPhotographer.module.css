@@ -1,19 +1,24 @@
 .miniaphotographer__article {
     display: flex;
-    width: 200;
+    width: 200px;
     height: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
- .miniaphotographer__article_img {
+.miniaphotographer__article_img {
     width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
+    height: 220px;
     position: relative;
+    border-radius: 50% 50% 0% 0%;
+    overflow: hidden;
+    mask-image: url('/circle-moon-mask.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
 
+    
 }
 
 .miniaphotographer__article_title {

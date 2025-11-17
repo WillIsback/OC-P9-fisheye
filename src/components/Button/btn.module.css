@@ -2,11 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32;
-    height: 32;
-    span {
-        padding: 10.67px 8px;
-    }
+    width: 32px;
+    height: 32px;
 }
 
 .btnlike:hover,
@@ -16,7 +13,7 @@
 .btnlike__span {
     color: var(--secondary-font-3);
     font-family: var(--font-dm-sans);
-    font-size: 24;
+    font-size: 24px;
     font-weight: 500;
     display: flex;
     gap: 5px;

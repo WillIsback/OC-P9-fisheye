@@ -1,19 +1,31 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import LbContactForm from 'app/photographer/[photographer]/lightbox/LbContactForm';
-import ContactForm from '../Form/ContactForm';
+import LbContactForm from "app/[locale]/photographer/[photographer]/lightbox/LbContactForm";
+import { useState } from "react";
+import { useTranslations } from "next-intl";
+import ContactForm from "../Form/ContactForm";
 
-export default function BtnContact({name}: {readonly name: string}){
-    const [isOpen, setIsOpen] = useState(false);
+export default function BtnContact({ name }: { readonly name: string }) {
+	const [isOpen, setIsOpen] = useState(false);
+	const t = useTranslations('Contact');
 
-    return (
-    <>
-        <button type="button" className={`btn--primary`} onClick={()=> setIsOpen(true)}>Contactez-moi</button>
-        <LbContactForm isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <h2>Contactez-moi<br/>{name}</h2>
-            <ContactForm />
-      </LbContactForm>
-    </>
-    )
+	return (
+		<>
+			<button
+				type="button"
+				className={`btn--primary`}
+				onClick={() => setIsOpen(true)}
+			>
+				{t('buttonText')}
+			</button>
+			<LbContactForm isOpen={isOpen} setIsOpen={setIsOpen}>
+				<h2>
+					{t('modalTitle')}
+					<br />
+					{name}
+				</h2>
+				<ContactForm />
+			</LbContactForm>
+		</>
+	);
 }

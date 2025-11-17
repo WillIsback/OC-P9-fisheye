@@ -1,0 +1,11 @@
+<svg width="200" height="220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="moonMask">
+      <!-- Cercle principal opaque -->
+      <circle cx="100" cy="95" r="95" fill="white"/>
+      <!-- Croissant du bas semi-transparent -->
+      <ellipse cx="100" cy="100" rx="95" ry="100" fill="rgba(255,255,255,0.03)"/>
+    </mask>
+  </defs>
+  <rect width="200" height="220" fill="black" mask="url(#moonMask)"/>
+</svg>
