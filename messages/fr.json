@@ -26,7 +26,10 @@
     "popularity": "Popularité",
     "date": "Date",
     "title": "Titre",
-    "dropdownIconAlt": "icône pour déplier le sélecteur du filtre de tri de la galerie photo"
+    "dropdownIconAlt": "icône pour déplier le sélecteur du filtre de tri de la galerie photo",
+    "dropdownButtonLabel": "Ouvrir le menu de tri",
+    "dropdownListLabel": "Options de tri",
+    "navigationHelp": "Utilisez les flèches haut et bas pour naviguer, Entrée pour sélectionner, Échap pour fermer"
   },
   "Photographer": {
     "cardAriaLabel": "Carte et miniature des photographes du site",
@@ -51,7 +54,8 @@
     "imageMetaTitle": "Affichage de l'image {title}",
     "videoMetaTitle": "Affichage de la vidéo {title}",
     "mediaMetaDescription": "Média du photographe {name}, datant du {date}, {likes} likes. Tarif: {price}",
-    "mediaOgTitle": "{title} - Affichage du Média"
+    "mediaOgTitle": "{title} - Affichage du Média",
+    "currentMedia": "Affichage du Média {title}"
   },
   "Errors": {
     "sortParamError": "Problème avec le paramètre 'sort'",
@@ -68,7 +72,7 @@
     "message": "Quelque chose s'est mal passé!"
   },
   "Selector": {
-    "label": "FR",
-    "ariaLabel": "Selecteur controleur"
+    "label": "Langue",
+    "ariaLabel": "Sélecteur de langue"
   }
 }

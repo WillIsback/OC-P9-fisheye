@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { type RefObject, useEffect, useRef } from "react";
 import { BigMediaDisplay } from "@/components/Minia/Work/MediaDisplay";
@@ -20,17 +20,28 @@ export default function LbMedia({
 	readonly dialogRef: RefObject<HTMLDialogElement | null>;
 }) {
 	const router = useRouter();
+	const searchParams = useSearchParams();
+	const mediaId = searchParams.get('mediaId');
 	const btnNextRef = useRef<React.ComponentRef<"button">>(null);
 	const btnPrevRef = useRef<React.ComponentRef<"button">>(null);
 	const baseUrl = `/photographer/${picture?.photographerId}`;
 	const t = useTranslations("Media");
 
+
+	useEffect(() => {
+		if(mediaId){
+		dialogRef.current?.focus();
+	}
+	}, [dialogRef, mediaId]);
+
 	useEffect(() => {
 		const ref = dialogRef.current;
 		function handleArrowKey(event: KeyboardEvent) {
 			if (event.key === "ArrowRight") {
+				event.preventDefault();
 				router.replace(`${baseUrl}/?sort=${sort}&mediaId=${nextMediaId}`);
 			} else if (event.key === "ArrowLeft") {
+				event.preventDefault();
 				router.replace(`${baseUrl}/?sort=${sort}&mediaId=${prevMediaId}`);
 			}
 		}
@@ -52,6 +63,9 @@ export default function LbMedia({
 
 	return (
 		<>
+			<output aria-live='polite' aria-atomic="true" className="sr-only" tabIndex={-1}>
+				{t('currentMedia', { title: picture.title })}
+			</output>
 			<button
 				type="button"
 				onClick={handlePrev}

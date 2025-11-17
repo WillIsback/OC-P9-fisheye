@@ -15,10 +15,10 @@ export default function BannerPhotographer({
 	return (
 		<article className={styles.bannerphotographer__article}>
 			<div className={styles.bannerphotographer__article_content}>
-				<h2 className={styles.bannerphotographer__article_title}>{name}</h2>
-				<h3 className={styles.bannerphotographer__article_subtitle}>
+				<h1 className={styles.bannerphotographer__article_title}>{name}</h1>
+				<h2 className={styles.bannerphotographer__article_subtitle}>
 					{city}, {country}
-				</h3>
+				</h2>
 				<p className={styles.bannerphotographer__article_p}>{tagline}</p>
 			</div>
 			<BtnContact name={name} />

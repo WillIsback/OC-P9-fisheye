@@ -11,23 +11,7 @@
     margin-top: 42;
     margin-left: 100px;
 }
-.index__header_langselector {
-    position: absolute;
-    top:55px;
-    left:325px;
-    background-color: var(--secondary-font-3);
-    border-radius: 5px;
-    color: white;
-    padding: 5px;
-    font-family: var(--font-dm-sans);
-    option{
-        background-color: var(--secondary-font-3);
-    }
-    option:focus, option:hover{
-        background-color: var(--secondary-bg-1);
-        color: var(--secondary-font-1);
-    }
-}
+
 .index__header_title {
     margin-top: 42;
     margin-right: 100;

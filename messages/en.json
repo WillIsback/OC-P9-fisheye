@@ -26,7 +26,10 @@
     "popularity": "Popularity",
     "date": "Date",
     "title": "Title",
-    "dropdownIconAlt": "icon to unfold the gallery filter selector"
+    "dropdownIconAlt": "icon to unfold the gallery filter selector",
+    "dropdownButtonLabel": "Open sort menu",
+    "dropdownListLabel": "Sort options",
+    "navigationHelp": "Use up and down arrow keys to navigate, Enter to select, Escape to close"
   },
   "Photographer": {
     "cardAriaLabel": "Photographer card and thumbnail",
@@ -51,7 +54,8 @@
     "imageMetaTitle": "Displaying image {title}",
     "videoMetaTitle": "Displaying video {title}",
     "mediaMetaDescription": "Media by photographer {name}, dated {date}, {likes} likes. Price: {price}",
-    "mediaOgTitle": "{title} - Media Display"
+    "mediaOgTitle": "{title} - Media Display",
+    "currentMedia": "{title} - Media Display"
   },
   "Errors": {
     "sortParamError": "Problem with the 'sort' parameter",
@@ -68,7 +72,7 @@
     "message": "Something went wrong!"
   },
   "Selector": {
-    "label": "EN",
-    "ariaLabel": "Selector controller"
+    "label": "Language",
+    "ariaLabel": "Language selector"
   }
 }

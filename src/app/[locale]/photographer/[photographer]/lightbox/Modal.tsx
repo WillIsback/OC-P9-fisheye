@@ -46,7 +46,7 @@ export default function Modal({
 
 	return createPortal(
 		<div className="modal-backdrop">
-			<dialog ref={dialogRef} className="modal" onClose={onDismiss}>
+			<dialog ref={dialogRef} className="modal" onClose={onDismiss} tabIndex={-1}>
 				<button type="button" onClick={onDismiss} className="close-button">
 					<Image
 						src="/close_ic.svg"

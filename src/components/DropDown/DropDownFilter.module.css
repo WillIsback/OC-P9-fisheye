@@ -1,76 +1,143 @@
-.dropdownfilter__section{
-    display : flex;
+.dropdownfilter__section {
+    display: flex;
     flex-direction: row;
     align-items: center;
     position: relative;
-    padding: 0px 100px;
     height: 69px;
-    h2 {
+}
+
+.dropdownfilter__section h2 {
     font-family: var(--font-dm-sans);
     font-size: 18px;
     font-weight: bold;
-    }
 }
 
-.dropdownlist:hover,
-.dropdownlist:focus{
-box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 30%);
-}
-
-.dropdownlist {
+/* Trigger button styles */
+.dropdownfilter__trigger {
+    margin-left: 25px;  /* Espace après le h2 */
+    z-index: 100;
+    background-color: var(--primary-bg-dark);
+    color: var(--primary-font-dark);
+    border-radius: 5px;
+    font-family: var(--font-dm-sans);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0px 20px;
+    width: 170px;
+    height: 56.56px;
+    border: none;
+    box-shadow: none;
     display: flex;
-    flex-direction: column;
-    height: auto;
-    position: absolute;
-    top: 10%;
-    left: 196px;
-    z-index: 10;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+/* Quand le menu est ouvert, retirer le border-radius du bas pour fusionner avec la liste */
+.dropdownfilter__trigger[data-state="open"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.dropdownfilter__trigger:hover {
+    box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+}
+
+.dropdownfilter__trigger:active {
+    color: var(--secondary-font-1);
+}
+
+.dropdownfilter__trigger:focus-visible {
+    box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+    outline: 2px solid var(--secondary-font-1);
+    outline-offset: 2px;
+}
+
+/* Chevron personnalisation et animation */
+.dropdownfilter__trigger svg {
+    transition: transform 0.2s ease;
+    /* Personnalisation du chevron */
+    width: 24px;           /* Largeur du chevron */
+    height: 24px;          /* Hauteur du chevron */
+    color: white;  /* Couleur du chevron */
+    opacity: 1;            /* Opacité (1 = 100%) */
+}
+
+.dropdownfilter__trigger[data-state="open"] svg {
+    transform: rotate(180deg);
+}
+
+/* Content dropdown styles */
+.dropdownfilter__content {
     background-color: var(--primary-bg-dark);
     color: var(--primary-font-dark);
     font-family: var(--font-dm-sans);
-    width: 170px;
-    border-radius: 5px;
-    li {
-        height: 56.56px;
-        padding: 0px 20px;
-        button span {
-            font-family: var(--font-dm-sans);
-            font-weight: bold;
-            font-size: 18px;
-        }
-        button:active {
-            color: var(--secondary-font-1);
-        }
-
-    }
-
-
+    width: var(--radix-select-trigger-width);
+    border-radius: 0 0 5px 5px;
+    border: none;
+    padding: 0;
+    z-index: 1000;
+    margin-top: -5px;
 }
 
-.dropdownlist__default{
-    display: flex;
-    flex-direction: row;
+.dropdownfilter__content:hover,
+.dropdownfilter__content:focus {
+    box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+}
+
+/* Viewport inside content */
+.dropdownfilter__viewport {
+    padding: 0;
+}
+
+/* Separator styles */
+.dropdownfilter__separator {
+    background-color: #FFFFFF;
+    height: 1px;
+    margin: 0;
     width: 100%;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
 }
 
-.dropdownlist__hidden {
+/* Item styles */
+.dropdownfilter__item {
+    height: 56.56px;
+    padding: 0px 20px;
+    font-family: var(--font-dm-sans);
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--primary-font-dark);
+    cursor: pointer;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    outline: none;
+}
+
+/* Cacher UNIQUEMENT l'item sélectionné (celui avec data-state="checked") */
+.dropdownfilter__item[data-state="checked"] {
     display: none;
 }
 
-.dropdownlist__displayed {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
+/* Cacher aussi le separator qui suit l'item caché */
+.dropdownfilter__item[data-state="checked"] + .dropdownfilter__separator {
+    display: none;
 }
 
-.dropdownlist__displayed::before {
-    width: 100%;
-    flex-shrink: 0;
-    content: "";
-    display: block;
-    border-top: 1px solid #FFFF;
+.dropdownfilter__item:hover,
+.dropdownfilter__item[data-highlighted] {
+    background-color: var(--secondary-bg-1);
+    color: var(--secondary-font-1);
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }

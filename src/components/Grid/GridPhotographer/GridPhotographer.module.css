@@ -3,9 +3,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 80px;
-    column-gap: 248px;
+    column-gap: 20%;
     article{
-        width: 20%;
+        width: calc((100% - (2 * 20%)) / 3);
     }
 
 }

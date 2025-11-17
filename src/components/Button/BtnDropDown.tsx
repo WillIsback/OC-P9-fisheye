@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import type { Dispatch, SetStateAction } from "react";
 import { useTranslations } from "next-intl";
+import type { Dispatch, SetStateAction } from "react";
 import styles from "./btn.module.css";
 
 export default function BtnDropDown({
@@ -11,13 +11,17 @@ export default function BtnDropDown({
 	readonly setDeploy: Dispatch<SetStateAction<boolean>>;
 	readonly isDeploy: boolean;
 }) {
-	const t = useTranslations('Filter');
+	const t = useTranslations("Filter");
 
 	return (
 		<button
 			type="button"
 			onClick={() => setDeploy(!isDeploy)}
 			className={styles.btndropdown}
+			aria-expanded={isDeploy}
+			aria-haspopup="true"
+			aria-controls="dropdown-list"
+			aria-label={t("dropdownButtonLabel")}
 		>
 			<span>
 				<Image
@@ -26,7 +30,8 @@ export default function BtnDropDown({
 					}
 					width={16}
 					height={10}
-					alt={t('dropdownIconAlt')}
+					alt=""
+					aria-hidden="true"
 				/>
 			</span>
 		</button>
