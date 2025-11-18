@@ -12,7 +12,7 @@ export default function MiniaPhotographer({
 }) {
 	const { city, country, name, portrait, price, tagline, RatioCorrection, id } =
 		photographer;
-	const { zoom, x, y } = RatioCorrection;
+	const { zoom, x, y , dimensions} = RatioCorrection;
 	const t = useTranslations('Photographer');
 
 	return (
@@ -28,14 +28,16 @@ export default function MiniaPhotographer({
                 <Image
                     src={`/assets/${portrait}`}
                     alt={t('portraitAlt', { name })}
-										width={200}
-										height={200}
-                    loading="lazy"
+										width={dimensions.width}
+										height={dimensions.height}
+										sizes="100vw"
                     style={{
                         transform: `scale(${zoom})
                                 translate(${x} , ${y})`,
-												
+												width: '100%',
+												height: 'auto'
                     }}
+										preload
                 />
             </Link>
 			<h2 className={styles.miniaphotographer__article_title}>{name}</h2>

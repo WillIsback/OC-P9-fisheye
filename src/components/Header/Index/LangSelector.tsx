@@ -1,10 +1,10 @@
 "use client";
 import * as Select from "@radix-ui/react-select";
-import { usePathname, useRouter } from "i18n/navigation";
 import { ChevronDownIcon } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useTransition } from "react";
+import { usePathname, useRouter } from "src/i18n/navigation";
 import styles from "./LangSelector.module.css";
 
 export default function LangSelector() {
@@ -45,7 +45,7 @@ export default function LangSelector() {
 					</Select.Icon>
 				</Select.Trigger>
 
-				<Select.Portal container={document.body}>
+				<Select.Portal>
 					<Select.Content
 						className={styles.langselector__content}
 						position="popper"

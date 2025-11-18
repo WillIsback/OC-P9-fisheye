@@ -42,7 +42,7 @@ export default function DropDownFilter() {
 					</Select.Icon>
 				</Select.Trigger>
 
-				<Select.Portal container={document.body}>
+				<Select.Portal>
 					<Select.Content
 						className={styles.dropdownfilter__content}
 						position="popper"

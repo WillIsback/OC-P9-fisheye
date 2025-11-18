@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import logo from "../../../../public/logo.svg";
 import styles from "./IndexHeader.module.css";
 import LangSelector from "./LangSelector";
 
@@ -20,7 +21,7 @@ export default function IndexHeader() {
 				className={styles.index__header_logo}
 				aria-label={t("logoAriaLabel")}
 			>
-				<Image src="/logo.svg" alt={t("logoAlt")} width={200} height={50} />
+				<Image src={logo} alt={t("logoAlt")} preload />
 			</Link>
 			<nav>
 				<LangSelector />

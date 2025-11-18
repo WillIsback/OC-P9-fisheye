@@ -9,8 +9,7 @@ export default function BannerPhotographer({
 }: {
 	readonly photographer: EnhancedPhotographer;
 }) {
-	const { city, country, name, portrait, tagline, RatioCorrection } =
-		photographer;
+	const { city, country, name, portrait, tagline, RatioCorrection } = photographer;
 
 	return (
 		<article className={styles.bannerphotographer__article}>
@@ -28,11 +27,11 @@ export default function BannerPhotographer({
 					alt={`image portrait du photographe ${name}`}
 					fill
 					sizes="(width: 200px), 100vw"
-					loading="eager"
 					style={{
 						transform: `scale(${RatioCorrection.zoom})
                                     translate(${RatioCorrection.x},${RatioCorrection.y})`,
 					}}
+					preload
 				/>
 			</div>
 		</article>

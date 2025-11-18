@@ -1,11 +1,11 @@
 import { DM_Sans, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { routing } from "i18n/routing";
-import { pick } from 'lodash';
+import { pick } from "lodash";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import type React from "react";
+import { routing } from "src/i18n/routing";
 import IndexHeader from "@/components/Header/Index/IndexHeader";
 
 const geistSans = Geist({
@@ -29,11 +29,11 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale, namespace: 'HomePage' });
+	const t = await getTranslations({ locale, namespace: "HomePage" });
 
 	return {
-		title: t('metaTitle'),
-		description: t('metaDescription'),
+		title: t("metaTitle"),
+		description: t("metaDescription"),
 	};
 }
 

@@ -16,17 +16,17 @@ const getImageRatio = async (imagepath: string) => {
 	const rootImagepath = getImageFilePath(imagepath);
 	const dimensions = await imageSizeFromFile(rootImagepath);
 	const imageRatio = dimensions.width / dimensions.height;
-	return imageRatio;
+	return {imageRatio, dimensions};
 };
 
 async function getRatioCorrection(image: string) {
-	const imageRatio = await getImageRatio(image);
+	const {imageRatio, dimensions} = await getImageRatio(image);
 	if (imageRatio < 1) {
-		return { zoom: 1.4, x: "0px", y: "-15px" }; // portrait
+		return { zoom: 1.4, x: "0px", y: "-15px", dimensions }; // portrait
 	} else if (imageRatio > 1) {
-		return { zoom: 1.7, x: "5px", y: "15px" }; // paysage
+		return { zoom: 1.7, x: "5px", y: "15px", dimensions }; // paysage
 	} else {
-		return { zoom: 1.25, x: "20px", y: "0px" }; // fullsize
+		return { zoom: 1.25, x: "20px", y: "0px", dimensions }; // fullsize
 	}
 }
 

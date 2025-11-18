@@ -4,6 +4,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { type RefObject, useEffect, useRef } from "react";
 import { BigMediaDisplay } from "@/components/Minia/Work/MediaDisplay";
+import modal_chevron_left from "@/public/modal_chevron_left.svg";
+import modal_chevron_right from "@/public/modal_chevron_right.svg";
 import type { Picture, SortCategory } from "@/types/types";
 
 export default function LbMedia({
@@ -21,17 +23,16 @@ export default function LbMedia({
 }) {
 	const router = useRouter();
 	const searchParams = useSearchParams();
-	const mediaId = searchParams.get('mediaId');
+	const mediaId = searchParams.get("mediaId");
 	const btnNextRef = useRef<React.ComponentRef<"button">>(null);
 	const btnPrevRef = useRef<React.ComponentRef<"button">>(null);
 	const baseUrl = `/photographer/${picture?.photographerId}`;
 	const t = useTranslations("Media");
 
-
 	useEffect(() => {
-		if(mediaId){
-		dialogRef.current?.focus();
-	}
+		if (mediaId) {
+			dialogRef.current?.focus();
+		}
 	}, [dialogRef, mediaId]);
 
 	useEffect(() => {
@@ -63,8 +64,13 @@ export default function LbMedia({
 
 	return (
 		<>
-			<output aria-live='polite' aria-atomic="true" className="sr-only" tabIndex={-1}>
-				{t('currentMedia', { title: picture.title })}
+			<output
+				aria-live="polite"
+				aria-atomic="true"
+				className="sr-only"
+				tabIndex={-1}
+			>
+				{t("currentMedia", { title: picture.title })}
 			</output>
 			<button
 				type="button"
@@ -74,9 +80,7 @@ export default function LbMedia({
 			>
 				<span>
 					<Image
-						src="/modal_chevron_left.svg"
-						width={48}
-						height={30}
+						src={modal_chevron_left}
 						style={{ height: "auto", width: "auto" }}
 						alt={t("previousMediaAlt")}
 					/>
@@ -97,9 +101,7 @@ export default function LbMedia({
 			>
 				<span>
 					<Image
-						src="/modal_chevron_right.svg"
-						width={48}
-						height={30}
+						src={modal_chevron_right}
 						style={{ height: "auto", width: "auto" }}
 						alt={t("nextMediaAlt")}
 					/>

@@ -6,9 +6,9 @@ import { useTranslations } from "next-intl";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useIsMounted } from "@/hooks/useIsMounted";
+import close_ic from "@/public/close_ic.svg";
 import type { Picture, SortCategory } from "@/types/types";
 import LbMedia from "./LbMedia";
-
 export default function Modal({
 	picture,
 	nextMediaId,
@@ -46,14 +46,14 @@ export default function Modal({
 
 	return createPortal(
 		<div className="modal-backdrop">
-			<dialog ref={dialogRef} className="modal" onClose={onDismiss} tabIndex={-1}>
+			<dialog
+				ref={dialogRef}
+				className="modal"
+				onClose={onDismiss}
+				tabIndex={-1}
+			>
 				<button type="button" onClick={onDismiss} className="close-button">
-					<Image
-						src="/close_ic.svg"
-						width={42}
-						height={42}
-						alt={t("closeModalAlt")}
-					/>
+					<Image src={close_ic} alt={t("closeModalAlt")} />
 				</button>
 				<LbMedia
 					picture={picture}

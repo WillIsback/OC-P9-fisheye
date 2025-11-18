@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useCallback, useMemo, useState } from "react";
 import { useIsMounted } from "@/hooks/useIsMounted";
 import { getVisibleWidth } from "@/lib/utils.client";
 import styles from "./MiniaWork.module.css";
@@ -24,14 +24,14 @@ function MiniMediaDisplay({
 	readonly height: number;
 	readonly objectfit: "contain" | "cover";
 }) {
-	const t = useTranslations('Media');
+	const t = useTranslations("Media");
 
 	const media = useMemo(() => {
 		if (image) {
 			return (
 				<Image
 					src={`/assets/${image}`}
-					alt={t('imageAlt', { title })}
+					alt={t("imageAlt", { title })}
 					style={{
 						objectFit: `${objectfit}`,
 						width: `${width}px`,
@@ -40,14 +40,15 @@ function MiniMediaDisplay({
 					}}
 					width={width}
 					height={height}
+					preload
 				/>
 			);
 		} else {
 			return (
-				<video width="350" height="300" controls preload="none">
+				<video width="350" height="300" controls preload="none" aria-label={t("videoAlt", { title })}>
 					<source src={`/assets/${video}`} type="video/mp4" />
 					<track kind="captions" />
-					{t('videoNotSupported')}
+					{t("videoNotSupported")}
 				</video>
 			);
 		}
@@ -70,15 +71,15 @@ function BigMediaDisplay({
 }) {
 	const [offset, setOffset] = useState(0);
 	const isMounted = useIsMounted();
-	const t = useTranslations('Media');
+	const t = useTranslations("Media");
 
 	const handleOnLoad = useCallback(
 		(imgElement: HTMLImageElement) => {
-      if(isMounted){
-        const calculatedWidth = getVisibleWidth(imgElement);
-        const maringLeft = (imgElement.clientWidth - calculatedWidth) / 2;
-        setOffset(maringLeft);
-      }
+			if (isMounted) {
+				const calculatedWidth = getVisibleWidth(imgElement);
+				const maringLeft = (imgElement.clientWidth - calculatedWidth) / 2;
+				setOffset(maringLeft);
+			}
 		},
 		[isMounted],
 	);
@@ -88,7 +89,7 @@ function BigMediaDisplay({
 			return (
 				<Image
 					src={`/assets/${image}`}
-					alt={t('imageAlt', { title })}
+					alt={t("imageAlt", { title })}
 					style={{
 						objectFit: "contain",
 						maxHeight: `85vh`,
@@ -100,6 +101,7 @@ function BigMediaDisplay({
 					onLoad={(e) => handleOnLoad(e.currentTarget)}
 					placeholder="blur"
 					blurDataURL="/logo.svg"
+					preload
 				/>
 			);
 		} else {
@@ -113,7 +115,7 @@ function BigMediaDisplay({
 				>
 					<source src={`/assets/${video}`} type="video/mp4" />
 					<track kind="captions" />
-					{t('videoNotSupported')}
+					{t("videoNotSupported")}
 				</video>
 			);
 		}

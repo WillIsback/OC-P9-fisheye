@@ -46,6 +46,7 @@
     "likeButtonAriaLabel": "button to add a like to the work",
     "likeCounterAlt": "like counter for image {title}",
     "imageAlt": "image {title}",
+    "videoAlt": "video {title}",
     "videoNotSupported": "Your browser does not support the video tag.",
     "closeModalAlt": "button to close modal",
     "previousMediaAlt": "button to navigate to previous media",
