@@ -123,11 +123,7 @@ export default async function PhotographerPage({
 	const tErrors = await getTranslations({ locale, namespace: "Errors" });
 
 	if (!isSortCategory(sort) || !sort) {
-    try{
-      redirect(`/${locale}/photographer/{photographer}?sort=popularite`, RedirectType.push)
-    } catch(e){
-      return<div>{`${e}`} : {tErrors('sortParamError')}</div>
-    }
+		redirect(`/${locale}/photographer/{photographer}?sort=popularite`, RedirectType.push)
 	}
 	const sortedPics = handleSortingFilter(sort, allPics) ?? allPics;
 	const [nextMediaId, prevMediaId] = getMediaNavIndex(sortedPics, mediaId) ?? [-1,-1];

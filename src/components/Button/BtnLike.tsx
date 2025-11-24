@@ -24,7 +24,7 @@ export default function BtnLike({
 			className={styles.btnlike}
 			aria-label={t("likeButtonAriaLabel")}
 			onClick={async () => {
-				const updatedLikes = await incrementLike(`${mediaId}`, initialLikes);
+				const updatedLikes = await incrementLike(`${mediaId}`, likes);
 				setLikes(updatedLikes);
 			}}
 		>

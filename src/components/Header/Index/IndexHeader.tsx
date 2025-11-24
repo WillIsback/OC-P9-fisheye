@@ -24,7 +24,7 @@ export default function IndexHeader() {
 				<Image src={logo} alt={t("logoAlt")} preload />
 			</Link>
 			<nav>
-				<LangSelector />
+				{/* <LangSelector /> */}
 			</nav>
 			{pathname === `/${currentLocale}` && pathname != null && (
 				<h1
